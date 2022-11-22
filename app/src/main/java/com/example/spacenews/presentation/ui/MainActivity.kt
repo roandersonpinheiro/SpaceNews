@@ -1,7 +1,12 @@
-package com.example.spacenews
+package com.example.spacenews.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.spacenews.R
+
+
+
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
