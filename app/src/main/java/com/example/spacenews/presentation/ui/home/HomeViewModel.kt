@@ -1,30 +1,30 @@
 package com.example.spacenews.presentation.ui.home
 
 import androidx.lifecycle.*
+
+import com.example.spacenews.core.Query
 import com.example.spacenews.core.RemoteException
 import com.example.spacenews.core.State
 import com.example.spacenews.data.SpaceFlightNewsCategory
 import com.example.spacenews.data.model.Post
+import com.example.spacenews.domain.GetLatestPostsTitleContainsUseCase
 import com.example.spacenews.domain.GetLatestPostsUseCase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 
-class HomeViewModel(private val getLatestPostUseCase: GetLatestPostsUseCase) : ViewModel() {
+class HomeViewModel(
+    private val getLatestPostUseCase: GetLatestPostsUseCase,
+    private val getLatestPostsTitleContainsUseCase: GetLatestPostsTitleContainsUseCase
+) : ViewModel() {
+
 
     private val _progressBarVisible = MutableLiveData<Boolean>(false)
     val progressBarVisible: LiveData<Boolean>
         get() = _progressBarVisible
-
-
-    private val _category = MutableLiveData<SpaceFlightNewsCategory>().apply {
-        value = SpaceFlightNewsCategory.ARTICLES
-    }
-
-    val category: LiveData<SpaceFlightNewsCategory> get() = _category
-
 
     fun showProgressBar() {
         _progressBarVisible.value = true
@@ -38,6 +38,12 @@ class HomeViewModel(private val getLatestPostUseCase: GetLatestPostsUseCase) : V
     private val _snackbar = MutableLiveData<String?>(null)
     val snackbar: LiveData<String?>
         get() = _snackbar
+
+    private val _category = MutableLiveData<SpaceFlightNewsCategory>().apply {
+        value = SpaceFlightNewsCategory.ARTICLES
+    }
+    val category: LiveData<SpaceFlightNewsCategory>
+        get() = _category
 
 
     fun onSnackBarShown() {
@@ -53,30 +59,47 @@ class HomeViewModel(private val getLatestPostUseCase: GetLatestPostsUseCase) : V
         fetchLatest(_category.value ?: SpaceFlightNewsCategory.ARTICLES)
     }
 
-    fun fetchLatest(category:  SpaceFlightNewsCategory) {
-        fetchPosts(category.value)
-        _category.value = category
+    fun fetchLatest(category: SpaceFlightNewsCategory) {
+        fetchPosts(Query(category.value))
     }
 
 
-    private fun fetchPosts(query: String) {
+    private fun fetchPosts(query: Query) {
         viewModelScope.launch {
-            getLatestPostUseCase(query)
-                .onStart {
-                    _listPost.postValue(State.Loading)
-                    delay(800) //apenas cosmético
-                }.catch {
-                    with(RemoteException("Could not connect to SpaceFlightNews API")) {
-                        _listPost.postValue(State.Error(this))
-                        _snackbar.value = this.message
-                    }
+            getLatestPostUseCase(query).onStart {
+                _listPost.postValue(State.Loading)
+            }.catch {
+                with(RemoteException("Could not connect to SpaceFlightNews API")) {
+                    _listPost.postValue(State.Error(this))
+                    _snackbar.value = this.message
                 }
-                .collect {
-                    _listPost.postValue(State.Success(it))
-                }
+            }.collect {
+                _listPost.postValue(State.Success(it))
+                _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
+            }
         }
     }
 
+    private fun fetchPostTitleContains(query: Query) {
+        viewModelScope.launch {
+            getLatestPostsTitleContainsUseCase(query).onStart {
+                _listPost.postValue(State.Loading)
+
+            }.catch {
+                with(RemoteException("Could not connect to SpaceFlightNews API")) {
+                    _listPost.postValue(State.Error(this))
+                    _snackbar.value = this.message
+                }
+            }.collect {
+                _listPost.postValue(State.Success(it))
+                _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
+            }
+        }
+    }
+
+    fun searchPostTitleContains(searchString: String) {
+        fetchPostTitleContains(Query(_category.value.toString(), searchString))
+    }
 
     val helloText = Transformations.map(listPost) {
         listPost.let {
