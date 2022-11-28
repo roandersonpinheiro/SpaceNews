@@ -25,6 +25,7 @@ fun configureDataModuleForTest(baseUrl: String) = module {
 
 fun configureDomainModuleForTest() = module {
     factory<GetLatestPostsUseCase> { GetLatestPostsUseCase(get()) }
+    factory<GetLatestPostsTitleContainsUseCase> { GetLatestPostsTitleContainsUseCase(get()) }
 }
 
 private inline fun <reified T> createServiceForTest(
