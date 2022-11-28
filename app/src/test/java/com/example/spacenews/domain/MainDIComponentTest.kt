@@ -1,4 +1,4 @@
-package com.example.spacenews.test
+package com.example.spacenews.domain
 
 import org.koin.core.context.loadKoinModules
 import org.koin.core.context.startKoin

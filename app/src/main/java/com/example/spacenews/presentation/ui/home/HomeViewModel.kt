@@ -18,6 +18,14 @@ class HomeViewModel(private val getLatestPostUseCase: GetLatestPostsUseCase) : V
     val progressBarVisible: LiveData<Boolean>
         get() = _progressBarVisible
 
+
+    private val _category = MutableLiveData<SpaceFlightNewsCategory>().apply {
+        value = SpaceFlightNewsCategory.ARTICLES
+    }
+
+    val category: LiveData<SpaceFlightNewsCategory> get() = _category
+
+
     fun showProgressBar() {
         _progressBarVisible.value = true
     }
@@ -42,13 +50,18 @@ class HomeViewModel(private val getLatestPostUseCase: GetLatestPostsUseCase) : V
         get() = _listPost
 
     init {
-        fetchPosts()
+        fetchLatest(_category.value ?: SpaceFlightNewsCategory.ARTICLES)
+    }
+
+    fun fetchLatest(category:  SpaceFlightNewsCategory) {
+        fetchPosts(category.value)
+        _category.value = category
     }
 
 
-    private fun fetchPosts() {
+    private fun fetchPosts(query: String) {
         viewModelScope.launch {
-            getLatestPostUseCase(SpaceFlightNewsCategory.BLOGS.value)
+            getLatestPostUseCase(query)
                 .onStart {
                     _listPost.postValue(State.Loading)
                     delay(800) //apenas cosmético
