@@ -63,5 +63,26 @@ class SpaceFlightNewsServiceTest {
 
     }
 
+    @Test
+    fun `should reach correct endpoint when receiving query with option`() {
+        runBlocking {
+            mockWebServer.enqueue(MockResponse().setBody("[]"))
+            service.listPostsTitleContains("articles", "mars")
+            val request = mockWebServer.takeRequest()
+            assertEquals(request.path, "/articles?title_contains=mars")
+
+        }
+    }
+
+    @Test
+    fun `should reach correct endpoint when receiving query with null option`() {
+        runBlocking {
+            mockWebServer.enqueue(MockResponse().setBody("[]"))
+            service.listPostsTitleContains("articles", null)
+            val request = mockWebServer.takeRequest()
+            assertEquals(request.path, "/articles")
+        }
+    }
+
 
 }

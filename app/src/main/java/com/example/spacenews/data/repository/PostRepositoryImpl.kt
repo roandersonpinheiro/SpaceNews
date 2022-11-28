@@ -14,9 +14,23 @@ class PostRepositoryImpl(private val service: SpaceFlightNewsService) : PostRepo
 
     override suspend fun listPosts(category: String): Flow<List<Post>> = flow {
 
-
         try {
             val postList = service.listPosts(category)
+            emit(postList)
+        } catch (ex: HttpException) {
+            throw RemoteException("Unable to retrieve posts")
+        }
+
+    }
+
+    override suspend fun listPostsTitleContains(
+        category: String,
+        titleContains: String?
+    ): Flow<List<Post>> = flow {
+
+        try {
+            val postList =
+                service.listPostsTitleContains(type = category, titleContains = titleContains)
             emit(postList)
         } catch (ex: HttpException) {
             throw RemoteException("Unable to retrieve posts")

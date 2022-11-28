@@ -1,8 +1,7 @@
-package com.example.spacenews.test
+package com.example.spacenews.domain
 
 import com.example.spacenews.data.SpaceFlightNewsCategory
 import com.example.spacenews.data.model.Post
-import com.example.spacenews.domain.GetLatestPostsUseCase
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -56,7 +55,6 @@ class GetLatestPostsUseCaseTest : KoinTest{
     fun `should Return Object Of The Correct Type When Connecting With Repository`() {
         runBlocking {
             val result = getLatestPostsUseCase(SpaceFlightNewsCategory.ARTICLES.value)
-
             println(result.first().size)
             assertTrue(result is Flow<List<Post>>)
         }

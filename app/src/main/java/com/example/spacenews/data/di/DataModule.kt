@@ -14,7 +14,6 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-
 object DataModule {
 
     private const val BASE_URL = "https://api.spaceflightnewsapi.net/v3/"
