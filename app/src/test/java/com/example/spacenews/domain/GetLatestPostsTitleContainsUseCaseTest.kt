@@ -9,10 +9,8 @@ import org.junit.BeforeClass
 import org.junit.Test
 import org.koin.core.context.stopKoin
 import org.koin.test.AutoCloseKoinTest
-import org.koin.test.KoinTest
 import org.koin.test.inject
 import kotlin.test.assertTrue
-
 
 class GetLatestPostsTitleContainsUseCaseTest : AutoCloseKoinTest() {
     val getLatestPostsTitleContainsUseCase: GetLatestPostsTitleContainsUseCase by inject()
@@ -46,8 +44,6 @@ class GetLatestPostsTitleContainsUseCaseTest : AutoCloseKoinTest() {
                 assertion = assertion && post.title.lowercase().contains(searchString)
             }
             assertTrue(assertion)
-
         }
     }
-
 }

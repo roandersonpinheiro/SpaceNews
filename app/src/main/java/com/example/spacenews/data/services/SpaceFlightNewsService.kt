@@ -5,9 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
 interface SpaceFlightNewsService {
-
 
     @GET("{type}")
     suspend fun listPosts(@Path("type") type: String): List<Post>

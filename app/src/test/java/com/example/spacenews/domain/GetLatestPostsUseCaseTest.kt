@@ -2,8 +2,6 @@ package com.example.spacenews.domain
 
 import com.example.spacenews.core.Query
 import com.example.spacenews.data.SpaceFlightNewsCategory
-import com.example.spacenews.data.model.Post
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.AfterClass
@@ -13,8 +11,6 @@ import org.koin.core.context.stopKoin
 import org.koin.test.KoinTest
 import org.koin.test.inject
 import kotlin.test.assertFalse
-import kotlin.test.assertNotNull
-import kotlin.test.assertTrue
 
 class GetLatestPostsUseCaseTest : KoinTest {
 
@@ -72,7 +68,5 @@ class GetLatestPostsUseCaseTest : KoinTest {
 
             assertFalse(result.first().isEmpty())
         }
-
     }
-
 }

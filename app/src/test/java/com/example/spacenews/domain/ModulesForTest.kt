@@ -1,6 +1,5 @@
 package com.example.spacenews.domain
 
-
 import com.example.spacenews.data.repository.PostRepository
 import com.example.spacenews.data.repository.PostRepositoryImpl
 import com.example.spacenews.data.services.SpaceFlightNewsService
@@ -10,7 +9,6 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-
 fun configureDataModuleForTest(baseUrl: String) = module {
     single<SpaceFlightNewsService> {
 
@@ -19,9 +17,7 @@ fun configureDataModuleForTest(baseUrl: String) = module {
     }
 
     single<PostRepository> { PostRepositoryImpl(get()) }
-
 }
-
 
 fun configureDomainModuleForTest() = module {
     factory<GetLatestPostsUseCase> { GetLatestPostsUseCase(get()) }
