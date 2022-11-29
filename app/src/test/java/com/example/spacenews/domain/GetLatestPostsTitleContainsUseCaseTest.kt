@@ -8,12 +8,13 @@ import org.junit.AfterClass
 import org.junit.BeforeClass
 import org.junit.Test
 import org.koin.core.context.stopKoin
+import org.koin.test.AutoCloseKoinTest
 import org.koin.test.KoinTest
 import org.koin.test.inject
 import kotlin.test.assertTrue
 
 
-class GetLatestPostsTitleContainsUseCaseTest : KoinTest {
+class GetLatestPostsTitleContainsUseCaseTest : AutoCloseKoinTest() {
     val getLatestPostsTitleContainsUseCase: GetLatestPostsTitleContainsUseCase by inject()
     private val type = SpaceFlightNewsCategory.ARTICLES.value
     private val searchString = "mars"
