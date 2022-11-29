@@ -11,6 +11,4 @@ class GetLatestPostsTitleContainsUseCase(private val repository: PostRepository)
 
     override suspend fun execute(param: Query): Flow<List<Post>> =
         repository.listPostsTitleContains(param.type, param.option)
-
-
 }

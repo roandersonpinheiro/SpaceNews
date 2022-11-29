@@ -1,8 +1,6 @@
 package com.example.spacenews.core
 
-
 sealed class State<out T : Any> {
-
 
     object Loading : State<Nothing>()
 

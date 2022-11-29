@@ -10,6 +10,4 @@ class GetLatestPostsUseCase(private val repository: PostRepository) :
     UseCase<Query, List<Post>>() {
 
     override suspend fun execute(param: Query): Flow<List<Post>> = repository.listPosts(param.type)
-
-
 }

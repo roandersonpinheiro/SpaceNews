@@ -8,11 +8,9 @@ import org.koin.dsl.module
 
 object DomainModule {
 
-
     fun load() {
         loadKoinModules(useCaseModule())
     }
-
 
     private fun useCaseModule(): Module {
         return module {
@@ -20,5 +18,4 @@ object DomainModule {
             factory { GetLatestPostsTitleContainsUseCase(get()) }
         }
     }
-
 }

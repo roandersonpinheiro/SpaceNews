@@ -29,28 +29,22 @@ object DataModule {
         }
     }
 
-
     private fun networkModule(): Module {
         return module {
-
 
             single {
                 createOkHttpClient()
             }
 
-
             single {
                 Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
             }
 
-
             single {
                 createService<SpaceFlightNewsService>(get(), get())
             }
-
         }
     }
-
 
     private fun createOkHttpClient(): OkHttpClient {
         val interceptor = HttpLoggingInterceptor {
@@ -63,7 +57,6 @@ object DataModule {
             .build()
     }
 
-
     private inline fun <reified T> createService(
         client: OkHttpClient,
         factory: Moshi,
@@ -75,5 +68,4 @@ object DataModule {
             .build()
             .create(T::class.java)
     }
-
 }

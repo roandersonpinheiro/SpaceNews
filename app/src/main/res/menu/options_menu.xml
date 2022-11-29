@@ -5,17 +5,21 @@
     <item
         android:id="@+id/action_get_articles"
         android:title="@string/news"
-        app:showAsAction="never">
-    </item>
+        app:showAsAction="never"></item>
 
     <item
         android:id="@+id/action_get_blogs"
         android:title="@string/blogs"
-        app:showAsAction="never">
-    </item>
+        app:showAsAction="never"></item>
     <item
         android:id="@+id/action_get_reports"
         android:title="@string/reports"
-        app:showAsAction="never">
-    </item>
+        app:showAsAction="never"></item>
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_search"
+        android:title="@string/search_in"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="collapseActionView|always"></item>
 </menu>

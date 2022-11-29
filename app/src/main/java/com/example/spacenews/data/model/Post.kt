@@ -1,6 +1,5 @@
 package com.example.spacenews.data.model
 
-
 data class Post(
     val id: Int,
     val title: String,
@@ -15,7 +14,6 @@ data class Post(
     fun hasLaunch(): Boolean = launches.isNotEmpty()
 
     fun getLaunchCount(): Int = launches.size
-
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -34,5 +32,4 @@ data class Post(
         result = 31 * result + title.hashCode()
         return result
     }
-
 }

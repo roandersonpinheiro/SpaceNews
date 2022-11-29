@@ -15,7 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import kotlin.test.assertEquals
 
-
 @RunWith(JUnit4::class)
 class SpaceFlightNewsServiceTest {
 
@@ -43,24 +42,22 @@ class SpaceFlightNewsServiceTest {
         runBlocking {
             // testar o endpoint articles
             mockWebServer.enqueue(MockResponse().setBody("[]"))
-           service.listPosts(SpaceFlightNewsCategory.ARTICLES.value)
+            service.listPosts(SpaceFlightNewsCategory.ARTICLES.value)
             val request1 = mockWebServer.takeRequest()
             assertEquals(request1.path, "/articles")
 
-
-            //testar o endpoint blogs
+            // testar o endpoint blogs
             mockWebServer.enqueue(MockResponse().setBody("[]"))
             service.listPosts(SpaceFlightNewsCategory.BLOGS.value)
             val request2 = mockWebServer.takeRequest()
             assertEquals(request2.path, "/blogs")
 
-            //testar o endpoint reports
+            // testar o endpoint reports
             mockWebServer.enqueue(MockResponse().setBody("[]"))
             service.listPosts(SpaceFlightNewsCategory.REPORTS.value)
             val request3 = mockWebServer.takeRequest()
             assertEquals(request3.path, "/reports")
         }
-
     }
 
     @Test
@@ -70,7 +67,6 @@ class SpaceFlightNewsServiceTest {
             service.listPostsTitleContains("articles", "mars")
             val request = mockWebServer.takeRequest()
             assertEquals(request.path, "/articles?title_contains=mars")
-
         }
     }
 
@@ -83,6 +79,4 @@ class SpaceFlightNewsServiceTest {
             assertEquals(request.path, "/articles")
         }
     }
-
-
 }
