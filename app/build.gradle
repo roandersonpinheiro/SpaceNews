@@ -5,6 +5,8 @@ plugins {
 }
 
 apply from: '../config/detekt/detekt.gradle'
+apply from: "../buildscripts/jacoco.gradle"
+apply from: "../buildscripts/coveralls.gradle"
 
 
 android {
@@ -25,6 +27,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
         }
     }
     compileOptions {
