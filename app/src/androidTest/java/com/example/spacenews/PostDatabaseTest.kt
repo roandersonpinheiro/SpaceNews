@@ -23,7 +23,6 @@ class PostDatabaseTest : DbTest() {
     private lateinit var dao: PostDao
     private lateinit var postDatabase: PostDatabase
 
-
     @Before
     fun createDb() {
         val context = ApplicationProvider.getApplicationContext<Context>()
@@ -33,13 +32,11 @@ class PostDatabaseTest : DbTest() {
         dao = postDatabase.dao
     }
 
-
     @After
     @Throws(IOException::class)
     fun closeDb() {
 //        postDatabase.close()
     }
-
 
     @Test
     fun `Should_Record_Post_In_Database_After`() {
@@ -57,7 +54,6 @@ class PostDatabaseTest : DbTest() {
         assertFalse(result.isEmpty())
     }
 
-
     @Test
     fun `Should_ReturnPostsCorrectly_WhenReadFromDatabase`() {
         lateinit var result: PostDb
@@ -66,7 +62,6 @@ class PostDatabaseTest : DbTest() {
             result = dao.listPosts().first()[0]
         }
         assertTrue(result.title == dbPosts[0].title)
-
     }
 
     @Test
@@ -79,6 +74,4 @@ class PostDatabaseTest : DbTest() {
         }
         assertTrue(result.isEmpty())
     }
-
-
 }
