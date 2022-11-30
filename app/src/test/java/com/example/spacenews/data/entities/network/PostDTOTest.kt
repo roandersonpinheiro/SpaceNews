@@ -1,8 +1,8 @@
 package com.example.spacenews.data
 
-import com.example.spacenews.data.model.Post
-import com.example.spacenews.data.network.LaunchDTO
-import com.example.spacenews.data.network.PostDTO
+import com.example.spacenews.data.entities.model.Post
+import com.example.spacenews.data.entities.network.LaunchDTO
+import com.example.spacenews.data.entities.network.PostDTO
 import junit.framework.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
