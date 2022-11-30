@@ -9,7 +9,7 @@ import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.spacenews.R
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 import com.google.android.material.chip.Chip
 import java.time.Instant
 import java.time.ZoneId

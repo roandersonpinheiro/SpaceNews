@@ -1,6 +1,6 @@
-package com.example.spacenews.data.network
+package com.example.spacenews.data.entities.network
 
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 
 data class PostDTO(
     val id: Int,

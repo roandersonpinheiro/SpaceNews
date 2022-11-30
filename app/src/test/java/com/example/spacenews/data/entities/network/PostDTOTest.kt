@@ -1,8 +1,6 @@
-package com.example.spacenews.data
+package com.example.spacenews.data.entities.network
 
 import com.example.spacenews.data.entities.model.Post
-import com.example.spacenews.data.entities.network.LaunchDTO
-import com.example.spacenews.data.entities.network.PostDTO
 import junit.framework.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -20,7 +18,7 @@ class PostDTOTest {
         id = 12783,
         title = "SpaceX ready for back to back astronaut, Starlink launches",
         url = "https://www.teslarati.com/spacex-back-to-back-starlink-astronaut-launches-crew-3/",
-        imageUrl = "https://www.teslarati.jpg",
+        imageUrl = "https://spacenews.com/wp-content/uploads/2021/11/crew2-chutes.jpg",
         summary = "Two SpaceX Falcon 9 rockets remain on track to attempt back-to-back astronaut",
         publishedAt = "2021-11-10T10:07:44.000Z",
         updatedAt = "2021-11-10T10:08:01.340Z",
@@ -30,7 +28,6 @@ class PostDTOTest {
     @Test
     fun `should correctly convert to model entity`() {
         val post: Post = postDto.toModel()
-
         // test whether the converted object is of the right type
         assertTrue(post is Post)
         // ... if the title attribute of the DTO object is right...

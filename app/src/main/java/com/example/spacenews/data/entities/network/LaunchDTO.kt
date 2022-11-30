@@ -1,6 +1,6 @@
-package com.example.spacenews.data.network
+package com.example.spacenews.data.entities.network
 
-import com.example.spacenews.data.model.Launch
+import com.example.spacenews.data.entities.model.Launch
 
 data class LaunchDTO(
     val id: String,

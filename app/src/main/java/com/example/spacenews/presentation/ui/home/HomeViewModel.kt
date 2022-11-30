@@ -9,7 +9,7 @@ import com.example.spacenews.core.Query
 import com.example.spacenews.core.RemoteException
 import com.example.spacenews.core.State
 import com.example.spacenews.data.SpaceFlightNewsCategory
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 import com.example.spacenews.domain.GetLatestPostsTitleContainsUseCase
 import com.example.spacenews.domain.GetLatestPostsUseCase
 import kotlinx.coroutines.flow.catch

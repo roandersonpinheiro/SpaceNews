@@ -10,7 +10,7 @@
     <data>
         <variable
             name="post"
-            type="com.example.spacenews.data.model.Post" />
+            type="com.example.spacenews.data.entities.model.Post" />
 
     </data>
 

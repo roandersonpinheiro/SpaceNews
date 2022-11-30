@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 import com.example.spacenews.databinding.ItemPostBinding
 
 class PostListAdapter : ListAdapter<Post, PostListAdapter.PostViewHolder>(PostDiffCallback()) {
