@@ -30,9 +30,13 @@ task combinedJacocoTestReport(
 
     // A collection of files within our own codebase that we want to exclude
     // from coverage reports.
-    def excludes = [
-            "**/databinding/**",
-    ]
+    def excludes = ['**/R.class',
+                    '**/R$*.class',
+                    '**/BuildConfig.*',
+                    '**/Manifest*.*',
+                    '**/*Test*.*',
+                    'android/**/*.*',
+                    '**/data/model/*']
 
     // Specify the type of jacoco reports that should be created.
     reports {
