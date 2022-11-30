@@ -20,8 +20,8 @@ class PostDTOTest {
         id = 12783,
         title = "SpaceX ready for back to back astronaut, Starlink launches",
         url = "https://www.teslarati.com/spacex-back-to-back-starlink-astronaut-launches-crew-3/",
-        imageUrl = "https://www.teslarati.com/wp-content/uploads/2021/11/Crew-3-Dragon-C210-F9-B1067-39A-110921-Richard-Angle-feature-2-c.jpg",
-        summary = "Two SpaceX Falcon 9 rockets remain on track to attempt back-to-back astronaut and Starlink satellite launches later this week. Both SpaceX East...",
+        imageUrl = "https://www.teslarati.jpg",
+        summary = "Two SpaceX Falcon 9 rockets remain on track to attempt back-to-back astronaut",
         publishedAt = "2021-11-10T10:07:44.000Z",
         updatedAt = "2021-11-10T10:08:01.340Z",
         launches = arrayOf(launchDto)

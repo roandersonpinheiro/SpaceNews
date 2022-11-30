@@ -18,7 +18,7 @@ import kotlin.test.assertFalse
 class GetLatestPostsUseCaseTest : KoinTest {
 
     val getLatestPostsUseCase: GetLatestPostsUseCase by inject()
-    val ARTICLES = "articles"
+    private val articles = "articles"
 
     companion object {
 
@@ -40,7 +40,7 @@ class GetLatestPostsUseCaseTest : KoinTest {
     @Test
     fun `Should return non-null result when connecting to repository`() {
         runBlocking {
-            val result = getLatestPostsUseCase(Query(ARTICLES))
+            val result = getLatestPostsUseCase(Query(articles))
 
             println(result.first().size)
 
@@ -51,7 +51,7 @@ class GetLatestPostsUseCaseTest : KoinTest {
     @Test
     fun `Should return Object Of The Correct Type When Connecting With Repository`() {
         runBlocking {
-            val result = getLatestPostsUseCase(Query(ARTICLES))
+            val result = getLatestPostsUseCase(Query(articles))
 
             println(result.first().size)
             assertTrue(result is Flow<List<Post>>)
