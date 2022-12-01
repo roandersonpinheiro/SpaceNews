@@ -1,6 +1,6 @@
 package com.example.spacenews.data.services
 
-import com.example.spacenews.data.network.PostDTO
+import com.example.spacenews.data.entities.network.PostDTO
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

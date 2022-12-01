@@ -1,4 +1,4 @@
-package com.example.spacenews.data.model
+package com.example.spacenews.data.entities.model
 
 data class Post(
     val id: Int,

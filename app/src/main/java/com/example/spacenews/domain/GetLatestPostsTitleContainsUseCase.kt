@@ -2,7 +2,7 @@ package com.example.spacenews.domain
 
 import com.example.spacenews.core.Query
 import com.example.spacenews.core.UseCase
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 import com.example.spacenews.data.repository.PostRepository
 import kotlinx.coroutines.flow.Flow
 

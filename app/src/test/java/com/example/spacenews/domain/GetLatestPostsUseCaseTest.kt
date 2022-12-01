@@ -2,7 +2,7 @@ package com.example.spacenews.domain
 
 import com.example.spacenews.core.Query
 import com.example.spacenews.data.SpaceFlightNewsCategory
-import com.example.spacenews.data.model.Post
+import com.example.spacenews.data.entities.model.Post
 import junit.framework.Assert.assertTrue
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -66,6 +66,15 @@ class GetLatestPostsUseCaseTest : KoinTest {
             println(result.first().size)
 
             assertFalse(result.first().isEmpty())
+        }
+    }
+    @Test
+    fun `should correctly stop a received object`() {
+        runBlocking {
+            val response = getLatestPostsUseCase(Query(SpaceFlightNewsCategory.ARTICLES.value))
+            val result = response.first().first()
+
+            assertTrue(result is Post)
         }
     }
 }

@@ -32,11 +32,22 @@ task combinedJacocoTestReport(
     // from coverage reports.
     def excludes = ['**/R.class',
                     '**/R$*.class',
+                    '**/android/databinding/*',
+                    '**/*$ViewInjector*.*',
+                    '**/*$ViewBinder*.*',
                     '**/BuildConfig.*',
+                    '**/*Application*.*',
+                    '**/*Binding*.*',
+                    '**/*Retrofit*.*',
+                    '**/*BR*.*',
+                    '**/*Adapter*.*',
+                    '**/*ViewHolder*.*',
                     '**/Manifest*.*',
-                    '**/*Test*.*',
-                    'android/**/*.*',
-                    '**/data/model/*']
+                    '**/*$Lambda$*.*',
+                    '**/*Module.*',
+                    '**/*Dagger*.*',
+                    '**/*MembersInjector*.*',
+                    '**/*_Provide*Factory*.*']
 
     // Specify the type of jacoco reports that should be created.
     reports {
