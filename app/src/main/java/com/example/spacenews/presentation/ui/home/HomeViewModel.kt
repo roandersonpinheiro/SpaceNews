@@ -70,9 +70,14 @@ class HomeViewModel(
                     _snackbar.value = this.message
                 }
             }.collect {
-                _listPost.postValue(State.Success(it))
-                _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
+                it.data?.let { posts ->
+                    _listPost.postValue(State.Success(posts))
+                }
+                it.error?.let { error ->
+                    _snackbar.value = error.message
+                }
             }
+            _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
         }
     }
 
@@ -86,7 +91,12 @@ class HomeViewModel(
                     _snackbar.value = this.message
                 }
             }.collect {
-                _listPost.postValue(State.Success(it))
+                it.data?.let { posts ->
+                    _listPost.postValue(State.Success(posts))
+                }
+                it.error?.let { error ->
+                    _snackbar.value = error.message
+                }
                 _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
             }
         }

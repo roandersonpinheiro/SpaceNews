@@ -15,6 +15,8 @@ buildscript {
         moshi_converter = "2.9.0"
         ext.jacocoAndroidVersion = "0.2"
         ext.coverallsVersion = "2.12.0"
+        mockk_version = '1.12.0'
+        mockk_android_version = '1.12.0'
     }
 }
 buildscript {
@@ -38,7 +40,6 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.20' apply false
     id("io.gitlab.arturbosch.detekt").version("1.22.0-RC3")
     id("org.jlleitschuh.gradle.ktlint-idea") version "$ktlintPluginVersion"
-
 }
 
 subprojects {
