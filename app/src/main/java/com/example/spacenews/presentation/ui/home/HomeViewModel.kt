@@ -72,7 +72,6 @@ class HomeViewModel(
             }.collect {
                 it.data?.let { posts ->
                     _listPost.postValue(State.Success(posts))
-
                 }
                 it.error?.let { error ->
                     _snackbar.value = error.message
@@ -94,14 +93,12 @@ class HomeViewModel(
             }.collect {
                 it.data?.let { posts ->
                     _listPost.postValue(State.Success(posts))
-
                 }
                 it.error?.let { error ->
                     _snackbar.value = error.message
                 }
                 _category.value = enumValueOf<SpaceFlightNewsCategory>(query.type.uppercase())
             }
-
         }
     }
 

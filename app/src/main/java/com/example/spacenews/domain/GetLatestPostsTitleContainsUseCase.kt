@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.Flow
 class GetLatestPostsTitleContainsUseCase(private val repository: PostRepository) :
     UseCase<Query, Resource<List<Post>>>() {
 
-
     override suspend fun execute(param: Query): Flow<Resource<List<Post>>> =
         repository.listPostsTitleContains(param.type, param.option)
 }

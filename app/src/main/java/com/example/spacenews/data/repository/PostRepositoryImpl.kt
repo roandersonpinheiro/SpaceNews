@@ -12,7 +12,6 @@ import com.example.spacenews.data.services.SpaceFlightNewsService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-
 class PostRepositoryImpl(
     private val service: SpaceFlightNewsService,
     private val dao: PostDao
@@ -31,7 +30,6 @@ class PostRepositoryImpl(
         dao.saveAll(list.toDb())
     }
 
-
     override suspend fun listPosts(category: String): Flow<Resource<List<Post>>> =
         networkBoundResource(
             query = readFromDatabase,
@@ -41,7 +39,6 @@ class PostRepositoryImpl(
             },
             onError = { RemoteException("Could not connect to SpaceFlightNews. Displaying cached content.") }
         )
-
 
     override suspend fun listPostsTitleContains(
         category: String,
@@ -54,5 +51,4 @@ class PostRepositoryImpl(
         },
         onError = { RemoteException("Could not connect to SpaceFlightNews. Displaying cached content.") }
     )
-
 }

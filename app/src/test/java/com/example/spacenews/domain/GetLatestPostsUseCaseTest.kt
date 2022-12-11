@@ -1,21 +1,21 @@
-//package com.example.spacenews.domain
+// package com.example.spacenews.domain
 //
-//import com.example.spacenews.core.Query
-//import com.example.spacenews.data.SpaceFlightNewsCategory
-//import com.example.spacenews.data.entities.model.Post
-//import junit.framework.Assert.assertTrue
-//import kotlinx.coroutines.flow.Flow
-//import kotlinx.coroutines.flow.first
-//import kotlinx.coroutines.runBlocking
-//import org.junit.AfterClass
-//import org.junit.BeforeClass
-//import org.junit.Test
-//import org.koin.core.context.stopKoin
-//import org.koin.test.KoinTest
-//import org.koin.test.inject
-//import kotlin.test.assertFalse
+// import com.example.spacenews.core.Query
+// import com.example.spacenews.data.SpaceFlightNewsCategory
+// import com.example.spacenews.data.entities.model.Post
+// import junit.framework.Assert.assertTrue
+// import kotlinx.coroutines.flow.Flow
+// import kotlinx.coroutines.flow.first
+// import kotlinx.coroutines.runBlocking
+// import org.junit.AfterClass
+// import org.junit.BeforeClass
+// import org.junit.Test
+// import org.koin.core.context.stopKoin
+// import org.koin.test.KoinTest
+// import org.koin.test.inject
+// import kotlin.test.assertFalse
 //
-//class GetLatestPostsUseCaseTest : KoinTest {
+// class GetLatestPostsUseCaseTest : KoinTest {
 //
 //    val getLatestPostsUseCase: GetLatestPostsUseCase by inject()
 //    private val articles = "articles"
@@ -77,10 +77,7 @@
 //            assertTrue(result is Post)
 //        }
 //    }
-//}
-
-
-
+// }
 
 // Uses cases
 //    @Test
@@ -114,4 +111,3 @@
 //
 //
 //    }
-

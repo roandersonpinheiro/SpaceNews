@@ -9,13 +9,11 @@ import com.example.spacenews.data.entities.model.Launch
 import com.example.spacenews.data.entities.model.Post
 import com.example.spacenews.data.entities.network.LaunchDTO
 import com.example.spacenews.data.entities.network.PostDTO
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 
 object PostsMock {
     val type = SpaceFlightNewsCategory.ARTICLES.value
     val searchString = "mars"
-
 
     private val launchDto = LaunchDTO(
         id = "0d779392-1a36-4c1e-b0b8-ec11e3031ee6",
@@ -73,7 +71,6 @@ object PostsMock {
         )
     )
 
-
     fun mockPostEntityListNetwork() = flowOf(
         Resource.Success(
             data = listOf(
@@ -110,7 +107,6 @@ object PostsMock {
             )
         )
     )
-
 
     fun mockPostEntity() = listOf(
         Post(
@@ -157,9 +153,7 @@ object PostsMock {
             data = null,
             error = RemoteException(
                 "Could not connect to SpaceFlightNews. " +
-                        "Displaying cached content."
+                    "Displaying cached content."
             )
         )
-
-
 }

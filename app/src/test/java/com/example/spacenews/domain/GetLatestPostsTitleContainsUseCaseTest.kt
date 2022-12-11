@@ -1,20 +1,20 @@
-//package com.example.spacenews.domain
+// package com.example.spacenews.domain
 //
-//import com.example.spacenews.core.Query
-//import com.example.spacenews.core.State
-//import com.example.spacenews.data.SpaceFlightNewsCategory
-//import kotlinx.coroutines.flow.collect
-//import kotlinx.coroutines.flow.first
-//import kotlinx.coroutines.runBlocking
-//import org.junit.AfterClass
-//import org.junit.BeforeClass
-//import org.junit.Test
-//import org.koin.core.context.stopKoin
-//import org.koin.test.AutoCloseKoinTest
-//import org.koin.test.inject
-//import kotlin.test.assertTrue
+// import com.example.spacenews.core.Query
+// import com.example.spacenews.core.State
+// import com.example.spacenews.data.SpaceFlightNewsCategory
+// import kotlinx.coroutines.flow.collect
+// import kotlinx.coroutines.flow.first
+// import kotlinx.coroutines.runBlocking
+// import org.junit.AfterClass
+// import org.junit.BeforeClass
+// import org.junit.Test
+// import org.koin.core.context.stopKoin
+// import org.koin.test.AutoCloseKoinTest
+// import org.koin.test.inject
+// import kotlin.test.assertTrue
 //
-//class GetLatestPostsTitleContainsUseCaseTest : AutoCloseKoinTest() {
+// class GetLatestPostsTitleContainsUseCaseTest : AutoCloseKoinTest() {
 //    val getLatestPostsTitleContainsUseCase: GetLatestPostsTitleContainsUseCase by inject()
 //    private val type = SpaceFlightNewsCategory.ARTICLES.value
 //    private val searchString = "mars"
@@ -52,4 +52,4 @@
 //            assertTrue(assertion)
 //        }
 //    }
-//}
+// }
