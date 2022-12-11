@@ -13,9 +13,9 @@ import kotlinx.coroutines.flow.flowOf
 
 object PostsMock {
     val type = SpaceFlightNewsCategory.ARTICLES.value
-    val searchString = "mars"
+    const val searchString = "mars"
 
-    private val launchDto = LaunchDTO(
+    val launchDto = LaunchDTO(
         id = "0d779392-1a36-4c1e-b0b8-ec11e3031ee6",
         provider = "Launch Library 2"
     )

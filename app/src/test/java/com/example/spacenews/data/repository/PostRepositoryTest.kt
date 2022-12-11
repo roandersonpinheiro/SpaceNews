@@ -6,7 +6,7 @@ import com.example.spacenews.data.dao.PostDao
 import com.example.spacenews.mock.PostsMock
 import io.mockk.coEvery
 import io.mockk.mockk
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
