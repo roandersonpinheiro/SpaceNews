@@ -35,7 +35,7 @@ class PostDatabaseTest : DbTest() {
     @After
     @Throws(IOException::class)
     fun closeDb() {
-//        postDatabase.close()
+        postDatabase.close()
     }
 
     @Test

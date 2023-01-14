@@ -1,6 +1,7 @@
 package com.example.spacenews.data.di
 
 import android.util.Log
+import com.example.spacenews.data.database.PostDatabase
 import com.example.spacenews.data.repository.PostRepository
 import com.example.spacenews.data.repository.PostRepositoryImpl
 import com.example.spacenews.data.services.SpaceFlightNewsService
@@ -8,6 +9,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -20,12 +22,18 @@ object DataModule {
     private const val OK_HTTP = "Ok Http"
 
     fun load() {
-        loadKoinModules(postsModule() + networkModule())
+        loadKoinModules(postsModule() + networkModule() + daoModule())
+    }
+
+    private fun daoModule(): Module {
+        return module {
+            single { PostDatabase.getInstance(androidContext()).dao }
+        }
     }
 
     private fun postsModule(): Module {
         return module {
-            single<PostRepository> { PostRepositoryImpl(get()) }
+            single<PostRepository> { PostRepositoryImpl(service = get(), dao = get()) }
         }
     }
 

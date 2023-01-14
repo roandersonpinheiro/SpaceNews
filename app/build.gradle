@@ -111,5 +111,12 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$room_version"
 
 
+    testImplementation "io.mockk:mockk:$mockk_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_android_version"
+
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+
+
+
 
 }
